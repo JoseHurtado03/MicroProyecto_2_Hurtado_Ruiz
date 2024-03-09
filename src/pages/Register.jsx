@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { createUser } from "../controllers/users";
-import { handleClick } from "../controllers/login";
+import { handleClick } from "../controllers/auth";
+import { registerWithCredentials } from "../controllers/auth";
 import styles from "./Register.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -24,6 +27,23 @@ export default function Register() {
     alert("Usuario creado con exito");
   }
 
+  const handleLogin = async () => {
+    if (
+      // nombre !== "" &&
+      // apellido !== "" &&
+      username !== ""
+      // videojuego_preferido !== ""
+    ) {
+      const user = await registerWithCredentials(email, password);
+      if (user != null) {
+        submitRegisterButton();
+        navigate("/HomePage");
+      } else {
+        alert("No se pudo crear la cuenta");
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
       <section className={styles.box}>
@@ -32,6 +52,7 @@ export default function Register() {
           <div className={styles.text}>Correo</div>
           <input
             className={styles.input}
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Ej: jose.hurtado@gmail.com"
@@ -80,7 +101,7 @@ export default function Register() {
           ></input>
         </section>
         <section className={styles.field} id={styles["button_field"]}>
-          <button onClick={submitRegisterButton} className={styles.buttons}>
+          <button onClick={handleLogin} className={styles.buttons}>
             Registrarse
           </button>
           <button onClick={handleClick} className={styles.buttons}>
