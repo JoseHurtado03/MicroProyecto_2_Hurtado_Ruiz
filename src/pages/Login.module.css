@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Esto centra verticalmente en la pantalla */
+}
+
+.mainTitle{
+    width: 348px;
+    height: 71px;
+
+    color: #FFF;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.box{
+    width: 598px;
+    height: 579px;
+
+    border-radius: 50px;
+    background: #363059;
+    box-shadow: 20px 15px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.text{
+    width: 172px;
+    height: 59px;
+
+    color: #FFF;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.input{
+    width: 373px;
+    height: 62px;
+
+    border-radius: 10px 30px 30px 30px;
+    background: #D9D9D9;
+}
+
+.buttons{
+    width: 201px;
+    height: 64px;
+    background-color: #8000FF;
+    fill: #8000FF;
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.25));
+    
+    color: #FFF;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 20px;
+}
+
+.enlace{
+    color: #D9D9D9;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

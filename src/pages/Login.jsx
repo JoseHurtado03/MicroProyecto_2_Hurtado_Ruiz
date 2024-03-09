@@ -1,24 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styles from './Login.module.css'
 
 export default function Login() {
     return (
-        <div>
-            <section>
-                <h1>Iniciar Sesión</h1>
+        <div className={styles.container}>
+            <section className={styles.box}>
+                <h1 className={styles.mainTitle}>Iniciar Sesión</h1>
                 <section>
-                    <h2>Usuario</h2>
-                    <input type="text" placeholder="Ej: Phox01"></input>
+                    <h2 className={styles.text}>Correo</h2>
+                    <input type="text" placeholder="Ej: example@gmail.com" className={styles.input}></input>
                 </section>
                 <section>
-                    <h2>Contraseña</h2>
-                    <input type="password"></input>
+                    <h2 className={styles.text}>Contraseña</h2>
+                    <input type="password" className={styles.input}></input>
                 </section>
                 <section>
-                    <button>Iniciar</button>
-                    <button>Iniciar con Google</button>
+                    <button className={styles.buttons}>Iniciar</button>
+                    <button className={styles.buttons}>Iniciar con Google</button>
                 </section>
-                <Link to="/register">¿No tienes cuenta? Regístrate</Link>
+                <Link to="/register" className={styles.enlace}>¿No tienes cuenta? Regístrate</Link>
             </section>
         </div>
     )
