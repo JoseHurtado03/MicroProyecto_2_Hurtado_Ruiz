@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { createUser, registerClick } from "../controllers/users";
@@ -64,6 +65,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Register() {
+=======
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+export default function Register() {
+>>>>>>> parent of b9a63d9 (Firebase y Registro)
     return (
         <div>
             <section>
@@ -88,5 +95,8 @@ export default function Register() {
             </section>
         </div>
     )
+<<<<<<< HEAD
+>>>>>>> parent of b9a63d9 (Firebase y Registro)
+=======
 >>>>>>> parent of b9a63d9 (Firebase y Registro)
 }
