@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { createUser } from "../controllers/users";
+import { handleClick } from "../controllers/login";
 import styles from "./Register.module.css";
 
 export default function Register() {
@@ -82,7 +83,9 @@ export default function Register() {
           <button onClick={submitRegisterButton} className={styles.buttons}>
             Registrarse
           </button>
-          <button className={styles.buttons}>Registrarse con Google</button>
+          <button onClick={handleClick} className={styles.buttons}>
+            Registrarse con Google
+          </button>
         </section>
         <Link to="/" className={styles.enlace}>
           ¿Ya tienes una cuenta? Inicia Sesión
