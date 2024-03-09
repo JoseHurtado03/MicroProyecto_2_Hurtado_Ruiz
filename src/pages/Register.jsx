@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { createUser } from "../controllers/users";
+import { createUser, registerClick } from "../controllers/users";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ export default function Register() {
   const apellido = "";
   const videojuego_preferido = "";
 
-  async function submitButton() {
+  async function submitRegisterButton() {
     await createUser({
       username,
       email,
@@ -51,8 +51,8 @@ export default function Register() {
           ></input>
         </section>
         <section>
-          <button onClick={submitButton}>Registrarse</button>
-          <button>Registrarse con Google</button>
+          <button onClick={submitRegisterButton}>Registrarse</button>
+          <button onClick={registerClick}>Registrarse con Google</button>
         </section>
         <Link to="/">¿Ya tienes una cuenta? Inicia Sesión</Link>
       </section>
