@@ -20,6 +20,53 @@ export async function handleClickGoogle() {
     const data = {};
     await addDoc(usersCollection, data);
   }
+
+  const collectionV = collection(db, "Clubes");
+  const documento = [
+    {
+      ID: "1",
+      nombre: "Club de Aventureros",
+      descripcion:
+        "Explora lugares misteriosos y descubre tesoros ocultos con otros entusiastas de la aventura.",
+      videojuegos: ["1", "3", "11"],
+    },
+    {
+      ID: "2",
+      nombre: "Club de Estrategia",
+      descripcion:
+        "Reúnete con estrategas brillantes para debatir tácticas, resolver enigmas y conquistar mundos virtuales.",
+      videojuegos: ["4", "15", "16"],
+    },
+    {
+      ID: "3",
+      nombre: "Club de Constructores",
+      descripcion:
+        "Comparte tus creaciones en Minecraft, diseña estructuras asombrosas y colabora en proyectos épicos.",
+      videojuegos: ["7", "8", "14"],
+    },
+    {
+      ID: "4",
+      nombre: "Club de Fútbol Virtual",
+      descripcion:
+        "Forma parte de un equipo virtual, compite en torneos y demuestra tus habilidades en FIFA 22.",
+      videojuegos: ["9", "10", "18"],
+    },
+    {
+      ID: "5",
+      nombre: "Club de Cazadores de Zombis",
+      descripcion:
+        "Únete a otros supervivientes en la lucha contra hordas de no muertos en juegos como Left 4 Dead o Resident Evil.",
+      videojuegos: ["2", "13", "17"],
+    },
+  ];
+  documento.forEach(async (docu) => {
+    try {
+      await setDoc(doc(collectionV, docu.ID), docu);
+      console.log(`Documento con ID ${docu.ID} agregado correctamente.`);
+    } catch (error) {
+      console.error(`Error al agregar documento con ID ${docu.ID}:`, error);
+    }
+  });
 }
 
 export async function registerWithCredentials(email, password) {

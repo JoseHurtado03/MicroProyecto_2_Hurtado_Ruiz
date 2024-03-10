@@ -1,17 +1,37 @@
-.barra{
-    width: 1245px;
-    height: 150px;
-
-    border-radius: 50px;
-    background: #D9D9D9;
+.barra {
+  width: 1245px;
+  height: 150px;
+  margin-top: 8rem;
+  border-radius: 50px;
+  background: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.input{
-    width: 1085px;
-    height: 96px;
+.input {
+  width: 1085px;
+  height: 96px;
+  border: #d9d9d9;
+  font-size: 20px;
+  border-radius: 50px 0px 0px 50px;
+  background: #fff;
+  text-align: center;
+}
 
-    border-radius: 50px 0px 0px 50px;
-    background: #FFF;
-    margin-top: 25px;
-    margin-left: 15px;
+button {
+  width: 42.75px;
+  height: 42.75px;
+  flex-shrink: 0;
+}
+
+.screen {
+  width: 1393px;
+  height: 100px;
+  flex-shrink: 0;
+
+  border-radius: 1393px;
+  background: #fff;
+
+  filter: blur(208.4375px);
 }
