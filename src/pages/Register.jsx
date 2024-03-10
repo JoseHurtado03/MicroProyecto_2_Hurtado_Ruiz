@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { createUser } from "../controllers/users";
-import { handleClick } from "../controllers/auth";
-import { registerWithCredentials } from "../controllers/auth";
+import {
+  handleClickGoogle,
+  registerWithCredentials,
+} from "../controllers/auth";
 import styles from "./Register.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +29,7 @@ export default function Register() {
     alert("Usuario creado con exito");
   }
 
-  const handleLogin = async () => {
+  const handleSignup = async () => {
     if (
       // nombre !== "" &&
       // apellido !== "" &&
@@ -101,10 +103,10 @@ export default function Register() {
           ></input>
         </section>
         <section className={styles.field} id={styles["button_field"]}>
-          <button onClick={handleLogin} className={styles.buttons}>
+          <button onClick={handleSignup} className={styles.buttons}>
             Registrarse
           </button>
-          <button onClick={handleClick} className={styles.buttons}>
+          <button onClick={handleClickGoogle} className={styles.buttons}>
             Registrarse con Google
           </button>
         </section>
