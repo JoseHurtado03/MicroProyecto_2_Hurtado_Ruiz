@@ -25,10 +25,11 @@ export async function getGames() {
   return games;
 }
 
-export async function getGamesByID() {
+export async function getGamesByID(id) {
   const gamesCollections = collection(db, "Videojuegos");
-  const gameDocs = await getDocs(gamesCollections, id);
-  const game = gameDocs.data();
+  const gameDocRef = doc(gamesCollections, id); // Create a reference to the specific document
+  const gameDoc = await getDoc(gameDocRef); // Pass the document reference to getDoc
+  const game = gameDoc.data();
   console.log(game);
   return game;
 }

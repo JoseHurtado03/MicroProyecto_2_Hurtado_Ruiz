@@ -1,17 +1,24 @@
 import React from "react";
 import GameCard from "./GameCard";
-import { getClubsByID } from "../controllers/data";
+import { getClubsByID, getGamesByID } from "../controllers/data";
 import { useState, useEffect } from "react";
+import styles from './Club.module.css'
 
 export default function Club() {
   const [clubInfo, setClubInfo] = useState("");
+  const [games, setGames] = useState([]);
+
   useEffect(() => {
     const selectedClubId = localStorage.getItem("ClubId");
-    console.log(selectedClubId);
     const fetchClubInfo = async () => {
       try {
         const clubData = await getClubsByID(selectedClubId);
         setClubInfo(clubData);
+
+        const gamesDetails = await Promise.all(clubData.videojuegos.map(async gameId => {
+            return await getGamesByID(gameId);
+        }))
+        setGames(gamesDetails);
       } catch (error) {
         console.error("Error al obtener la información del club:", error);
       }
@@ -22,16 +29,25 @@ export default function Club() {
 
   return (
     <div>
-      <section>
-        <h1>{clubInfo.nombre}</h1>
-        <button>Buscar</button>
-      </section>
-      <section>{clubInfo.descripcion}</section>
-      <section>
-        <GameCard />
-        <GameCard />
-        <GameCard />
-      </section>
+        <section className={styles.header}>
+            <h1>{clubInfo.nombre}</h1>
+            <button>Buscar</button>
+        </section>
+        <section className={styles.info}>{clubInfo.descripcion}</section>
+        <section>
+            <div style={{ overflow: 'auto', maxWidth: '100%' }}>
+                <div style={{ display: 'flex', gap: '50px' }}>
+                    {games.map(game => (
+                        <GameCard 
+                            key={game.ID} 
+                            name={game.titulo} 
+                            description={game.descripcion} 
+                            genre={game.genero} 
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>
     </div>
   );
 }
