@@ -1,0 +1,20 @@
+.button{
+    width: 57px;
+    height: 57px;
+}
+
+.header{
+    width: 1435px;
+    height: 132px;
+    color: #000;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background-color: aliceblue;
+    margin-bottom: 50px;
+
+    align-items: center;
+    justify-content: space-between;
+}
