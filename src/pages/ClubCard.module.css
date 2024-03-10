@@ -1,0 +1,32 @@
+.carta{
+    width: 289px;
+    height: 307px;
+    border-radius: 30px;
+    background: #A4FFFF;
+
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.info{
+    background: #B76FFF;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.botoncito{
+    width: 129px;
+    height: 51px;
+    border-radius: 20px;
+    background: #FF8383;
+    margin-left: 80px;
+}
