@@ -25,15 +25,6 @@
 .results {
   margin: 20px 0 0 500px;
 }
-.input {
-  width: 1085px;
-  height: 96px;
-  border: #d9d9d9;
-  font-size: 20px;
-  border-radius: 50px 0px 0px 50px;
-  background: #fff;
-  text-align: center;
-}
 
 button {
   width: 42.75px;
@@ -50,4 +41,17 @@ button {
   background: #fff;
 
   filter: blur(208.4375px);
+}
+
+.hButton{
+    width: 180px;
+    height: 80px;
+    border-radius: 40px;
+
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 40px;
+    align-items: center;
 }

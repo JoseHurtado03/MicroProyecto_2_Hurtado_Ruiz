@@ -3,6 +3,7 @@ import GameCard from "./GameCard";
 import { getClubsByID, getGamesByID } from "../controllers/data";
 import { useState, useEffect } from "react";
 import styles from './Club.module.css'
+import { Link } from 'react-router-dom';
 
 export default function Club() {
   const [clubInfo, setClubInfo] = useState("");
@@ -31,7 +32,9 @@ export default function Club() {
     <div>
         <section className={styles.header}>
             <h1>{clubInfo.nombre}</h1>
-            <button>Buscar</button>
+            <Link to='/search'>
+                <button className={styles.button}>Buscar</button>
+            </Link>
         </section>
         <section className={styles.info}>{clubInfo.descripcion}</section>
         <button className={styles.buttonY}>Suscribirse</button>
