@@ -2,6 +2,7 @@ import ClubCard from './ClubCard'
 import styles from './HomePage.module.css'
 import { getClubs } from '../controllers/data'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
     const [clubs, setClubs] = useState([]);
@@ -23,7 +24,9 @@ export default function HomePage() {
         <div>
             <section className={styles.header}>
                 <h1>Giusseppe Games Club</h1>
-                <button className={styles.button}>Buscar</button>
+                <Link to="/search">
+                    <button className={styles.button}>Buscar</button>
+                </Link>
             </section>
             <section>
                 <div style={{ overflow: 'auto', maxWidth: '100%' }}>
