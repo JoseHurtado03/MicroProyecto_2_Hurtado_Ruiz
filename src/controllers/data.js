@@ -27,8 +27,19 @@ export async function getGames() {
 
 export async function getGamesByID(id) {
   const gamesCollections = collection(db, "Videojuegos");
-  const gameDocs = await getDocs(gamesCollections, id);
-  const game = gameDocs.data();
+  const gameDocRef = doc(gamesCollections, id); // Create a reference to the specific document
+  const gameDoc = await getDoc(gameDocRef); // Pass the document reference to getDoc
+  const game = gameDoc.data();
   console.log(game);
   return game;
+}
+
+export async function getGamesByGenre(genre) {
+  const gamesCollections = collection(db, "Videojuegos");
+  const gameDocs = await getDocs(gamesCollections);
+  const games = gameDocs.docs
+    .map((doc) => doc.data())
+    .filter((game) => game.genero.toLowerCase() === genre.toLowerCase()); // Filtrar juegos por género
+  console.log(games);
+  return games;
 }

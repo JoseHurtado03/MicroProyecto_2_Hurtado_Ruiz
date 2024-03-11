@@ -1,31 +1,44 @@
 import React from "react";
 import styles from "./Search.module.css";
+import { useState } from "react";
+import { getGamesByGenre } from "../controllers/data";
+import GameCard from "./GameCard";
 
 export default function Search() {
+  const [genre, setGenre] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = async () => {
+    try {
+      const games = await getGamesByGenre(genre);
+      setSearchResults(games);
+    } catch (error) {
+      console.error("Error al buscar juegos:", error);
+    }
+  };
+
   return (
     <div>
       <section className={styles.barra}>
         <input
           type="text"
-          placeholder="Hogwarts Legacy"
+          placeholder="Ejemplos de Género: RPG, Multijugador, Battle Royal, Acción/Aventura, Aventura..."
           className={styles.input}
-        ></input>
-        <button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="43"
-            height="43"
-            viewBox="0 0 43 43"
-            fill="none"
-          >
-            <path
-              d="M39.55 42.875L24.5875 27.9125C23.4 28.8625 22.0344 29.6146 20.4906 30.1687C18.9469 30.7229 17.3042 31 15.5625 31C11.2479 31 7.59675 29.5053 4.609 26.516C1.62125 23.5267 0.126583 19.8755 0.125 15.5625C0.125 11.2479 1.61967 7.59675 4.609 4.609C7.59833 1.62125 11.2495 0.126583 15.5625 0.125C19.8771 0.125 23.529 1.61967 26.5184 4.609C29.5077 7.59833 31.0016 11.2495 31 15.5625C31 17.3042 30.7229 18.9469 30.1687 20.4906C29.6146 22.0344 28.8625 23.4 27.9125 24.5875L42.875 39.55L39.55 42.875ZM15.5625 26.25C18.5312 26.25 21.0551 25.2113 23.134 23.134C25.2129 21.0567 26.2516 18.5328 26.25 15.5625C26.25 12.5938 25.2113 10.0707 23.134 7.99338C21.0567 5.91604 18.5328 4.87658 15.5625 4.875C12.5938 4.875 10.0707 5.91446 7.99338 7.99338C5.91604 10.0723 4.87658 12.5953 4.875 15.5625C4.875 18.5312 5.91446 21.0551 7.99338 23.134C10.0723 25.2129 12.5953 26.2516 15.5625 26.25Z"
-              fill="black"
-            />
-          </svg>
-        </button>
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+        />
+        <button onClick={handleSearch}>Buscar</button>
       </section>
-      <div className={styles.screen}></div>
+      <section className={styles.results}>
+        {searchResults.map((game) => (
+          <GameCard
+            key={game.ID}
+            name={game.titulo}
+            description={game.descripcion}
+            genre={game.genero}
+          />
+        ))}
+      </section>
     </div>
   );
 }
