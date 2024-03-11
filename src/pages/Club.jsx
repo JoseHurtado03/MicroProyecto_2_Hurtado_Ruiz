@@ -34,7 +34,8 @@ export default function Club() {
             <button>Buscar</button>
         </section>
         <section className={styles.info}>{clubInfo.descripcion}</section>
-        <section>
+        <button className={styles.buttonY}>Suscribirse</button>
+        <section style={{marginLeft: '150px'}}>
             <div style={{ overflow: 'auto', maxWidth: '100%' }}>
                 <div style={{ display: 'flex', gap: '50px' }}>
                     {games.map(game => (
