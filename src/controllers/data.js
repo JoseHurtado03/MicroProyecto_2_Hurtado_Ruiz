@@ -25,7 +25,7 @@ export async function getGames() {
   return games;
 }
 
-export async function getGamesByID() {
+export async function getGamesByID(id) {
   const gamesCollections = collection(db, "Videojuegos");
   const gameDocs = await getDocs(gamesCollections, id);
   const game = gameDocs.data();

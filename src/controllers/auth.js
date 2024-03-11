@@ -3,6 +3,7 @@ import {
   getAdditionalUserInfo,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { auth, db, googleProvider } from "../firebase";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
@@ -14,15 +15,17 @@ export async function handleClickGoogle() {
 
   if (additionalInfo.isNewUser) {
     const usersCollection = collection(db, "users");
-    const data = {
+
+    await setDoc(doc(usersCollection, result.user.uid), {
       email: result.user.email,
       name: result.user.displayName.split(" ")[0],
       lastName: result.user.displayName.split(" ")[1],
       username: res,
       pref_game: "",
       membership: [],
-    };
-    await addDoc(usersCollection, data);
+    });
+    // const data = {};
+    // await addDoc(usersCollection, data);
   }
 
   // const collectionV = collection(db, "Clubes");
@@ -97,6 +100,11 @@ export async function loginWithCredentials(email, password) {
     console.error(e);
     return null;
   }
+}
+
+export async function logOut() {
+  await signOut(auth);
+  console.log("Sesión cerrada");
 }
 
 // export async function handleClickGoogleUp() {

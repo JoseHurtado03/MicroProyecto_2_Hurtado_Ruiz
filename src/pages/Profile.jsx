@@ -1,8 +1,21 @@
-import React from "react";
+import { useEffect } from "react";
 import styles from "./Profile.module.css";
 import logo from "../assets/img/profilepic.png";
+import { logOut } from "../controllers/auth";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/user";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
+  // const navigate = useNavigate();
+  // const user = useUser();
+  // console.log(user);
+  // useEffect(() => {
+  //   if (user === null) {
+  //     navigate("/", { replace: true });
+  //   }
+  // }, [user, navigate]);
+
   return (
     <div className={styles.titles}>
       <section>
@@ -204,6 +217,16 @@ export default function Profile() {
             </button>
           </main>
         </article>
+      </section>
+      <section>
+        <Link to="/" onClick={logOut} className={styles.logout}>
+          Cerrar Sesión
+        </Link>
+        <article
+          className={styles.box}
+          style={{ width: "1px" }}
+          id={styles["invisible"]}
+        ></article>
       </section>
     </div>
   );

@@ -7,6 +7,7 @@ import {
 } from "../controllers/auth";
 import styles from "./Register.module.css";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/user";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -35,6 +36,13 @@ export default function Register() {
       );
     }
   }
+
+  const signupGoogle = async () => {
+    handleClickGoogle();
+    if (useUser != null) {
+      navigate("/HomePage");
+    }
+  };
 
   const handleSignup = async () => {
     if (name !== "" && lastName !== "" && username !== "" && pref_game !== "") {
@@ -118,7 +126,7 @@ export default function Register() {
           <button onClick={handleSignup} className={styles.buttons}>
             Registrarse
           </button>
-          <button onClick={handleClickGoogle} className={styles.buttons}>
+          <button onClick={signupGoogle} className={styles.buttons}>
             Registrarse con Google
           </button>
         </section>

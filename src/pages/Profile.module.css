@@ -15,6 +15,21 @@
   width: 300px;
   background: #0b002b;
   padding-left: 0;
+  box-shadow: none;
+}
+
+.logout {
+  width: 90px;
+  border-radius: 13px;
+  font-size: 15px;
+  text-align: center;
+  background: #6e4a8b;
+  color: #ffffff;
+  padding: 10px;
+  padding-bottom: 40px;
+  border-radius: 12px;
+  border-bottom: 1rem;
+  margin-bottom: 4rem;
 }
 
 .input {
