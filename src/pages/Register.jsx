@@ -7,35 +7,45 @@ import {
 } from "../controllers/auth";
 import styles from "./Register.module.css";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/user";
 
 export default function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const nombre = "";
-  const apellido = "";
-  const videojuego_preferido = "";
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [pref_game, setGame] = useState("");
+  const memberships = [];
 
   async function submitRegisterButton() {
-    await createUser({
-      username,
-      email,
-      password,
-      nombre,
-      apellido,
-      videojuego_preferido,
-    });
-    alert("Usuario creado con exito");
+    if (name !== "" && lastName !== "" && username !== "" && pref_game !== "") {
+      await createUser({
+        username,
+        email,
+        name,
+        lastName,
+        pref_game,
+        memberships,
+      });
+      alert("Usuario creado con exito");
+    } else {
+      alert(
+        "Rellena los siguientes datos para completar tu inicio con google: nombre, apellido, username y juego preferido"
+      );
+    }
   }
 
+  const signupGoogle = async () => {
+    handleClickGoogle();
+    if (useUser != null) {
+      navigate("/HomePage");
+    }
+  };
+
   const handleSignup = async () => {
-    if (
-      // nombre !== "" &&
-      // apellido !== "" &&
-      username !== ""
-      // videojuego_preferido !== ""
-    ) {
+    if (name !== "" && lastName !== "" && username !== "" && pref_game !== "") {
       const user = await registerWithCredentials(email, password);
       if (user != null) {
         submitRegisterButton();
@@ -43,6 +53,10 @@ export default function Register() {
       } else {
         alert("No se pudo crear la cuenta");
       }
+    } else {
+      alert(
+        "Rellena los siguientes datos para completar tu inicio con google: nombre, apellido, username y juego preferido"
+      );
     }
   };
 
@@ -64,6 +78,8 @@ export default function Register() {
           <div className={styles.text}>Nombre</div>
           <input
             type="text="
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             placeholder="Giussepe"
             className={styles.input}
           ></input>
@@ -72,6 +88,8 @@ export default function Register() {
           <div className={styles.text}>Apellido</div>
           <input
             type="text="
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
             placeholder="Hurtuiz"
             className={styles.input}
           ></input>
@@ -98,6 +116,8 @@ export default function Register() {
           <div className={styles.text}>Juego Favorito</div>
           <input
             type="text"
+            value={pref_game}
+            onChange={(e) => setGame(e.target.value)}
             placeholder="Pokemon Violet"
             className={styles.input}
           ></input>
@@ -106,7 +126,7 @@ export default function Register() {
           <button onClick={handleSignup} className={styles.buttons}>
             Registrarse
           </button>
-          <button onClick={handleClickGoogle} className={styles.buttons}>
+          <button onClick={signupGoogle} className={styles.buttons}>
             Registrarse con Google
           </button>
         </section>

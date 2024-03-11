@@ -1,25 +1,53 @@
-.barra{
-    width: 1245px;
-    height: 150px;
-
-    border-radius: 50px;
-    background: #D9D9D9;
-    margin: 70px 0 0 70px
+.barra {
+  width: 1245px;
+  height: 150px;
+  margin-top: 8rem;
+  border-radius: 50px;
+  background: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.input{
-    width: 1085px;
-    height: 96px;
+.input {
+  width: 1085px;
+  height: 96px;
 
-    border-radius: 50px 0px 0px 50px;
-    background: #FFF;
-    margin-top: 25px;
-    margin-left: 15px;
+  border-radius: 50px 0px 0px 50px;
+  background: #fff;
+  margin-top: 25px;
+  margin-left: 15px;
 
-    font-size: 20px;
-    text-align: center;
+  font-size: 20px;
+  text-align: center;
 }
 
-.results{
-    margin: 20px 0 0 500px;
+.results {
+  margin: 20px 0 0 500px;
+}
+.input {
+  width: 1085px;
+  height: 96px;
+  border: #d9d9d9;
+  font-size: 20px;
+  border-radius: 50px 0px 0px 50px;
+  background: #fff;
+  text-align: center;
+}
+
+button {
+  width: 42.75px;
+  height: 42.75px;
+  flex-shrink: 0;
+}
+
+.screen {
+  width: 1393px;
+  height: 100px;
+  flex-shrink: 0;
+
+  border-radius: 1393px;
+  background: #fff;
+
+  filter: blur(208.4375px);
 }

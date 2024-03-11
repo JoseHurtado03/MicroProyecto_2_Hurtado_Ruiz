@@ -4,19 +4,19 @@ import { db } from "../firebase";
 export async function createUser({
   username,
   email,
-  password,
-  nombre,
-  apellido,
-  videojuego_preferido,
+  name,
+  lastName,
+  pref_game,
+  memberships,
 }) {
   const userCollection = collection(db, "users");
   const data = {
     username,
     email,
-    password,
-    nombre,
-    apellido,
-    videojuego_preferido,
+    name,
+    lastName,
+    pref_game,
+    memberships,
   };
   await addDoc(userCollection, data);
 }
