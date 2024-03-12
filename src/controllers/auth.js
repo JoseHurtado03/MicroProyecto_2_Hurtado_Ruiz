@@ -105,6 +105,7 @@ export async function loginWithCredentials(email, password) {
 export async function logOut() {
   await signOut(auth);
   console.log("Sesión cerrada");
+  window.location.reload();
 }
 
 // export async function handleClickGoogleUp() {

@@ -28,7 +28,6 @@
 
 button {
   width: 42.75px;
-  height: 42.75px;
   flex-shrink: 0;
 }
 
@@ -43,15 +42,15 @@ button {
   filter: blur(208.4375px);
 }
 
-.hButton{
-    width: 180px;
-    height: 80px;
-    border-radius: 40px;
+.hButton {
+  width: 180px;
+  height: 80px;
+  border-radius: 40px;
 
-    color: #000;
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 400;
-    margin-left: 40px;
-    align-items: center;
+  color: #000;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 40px;
+  align-items: center;
 }

@@ -7,6 +7,8 @@ import { useUser } from "../context/user";
 import { useNavigate } from "react-router-dom";
 
 import { getUserByID } from "../controllers/data";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -28,10 +30,17 @@ export default function Profile() {
   useEffect(() => {
     getUserInfo();
   }, []);
+  // const navigate = useNavigate();
+  // const useR = useUser();
+  // console.log(useR);
+  // if (!useR) {
+  //   navigate("/", { replace: true });
+  // }
+
   const navigate = useNavigate();
-  const useR = useUser();
-  console.log(useR);
-  if (!useR) {
+  const userDataCurrent = auth.currentUser;
+  console.log(userDataCurrent);
+  if (userDataCurrent == null) {
     navigate("/", { replace: true });
   }
 
@@ -235,9 +244,9 @@ export default function Profile() {
         </article>
       </section>
       <section>
-        <Link to="/" onClick={logOut} className={styles.logout}>
+        <button onClick={logOut} className={styles.logout}>
           Cerrar Sesión
-        </Link>
+        </button>
         <article
           className={styles.box}
           style={{ width: "1px" }}
