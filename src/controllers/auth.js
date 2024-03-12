@@ -27,6 +27,7 @@ export async function handleClickGoogle() {
     // const data = {};
     // await addDoc(usersCollection, data);
   }
+  window.location.reload();
 
   // const collectionV = collection(db, "Clubes");
   // const documento = [
