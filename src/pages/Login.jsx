@@ -15,11 +15,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const user = useUser();
   console.log(user);
-  unstable_batchedUpdates(() => {
-    if (user !== null) {
-      navigate("/HomePage", { replace: true });
-    }
-  });
+  if (user !== null) {
+    navigate("/HomePage", { replace: true });
+  }
 
   const submitLogin = async () => {
     const user = await loginWithCredentials(email, password);

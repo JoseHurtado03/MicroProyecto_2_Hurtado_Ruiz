@@ -186,9 +186,9 @@ export default function Profile() {
         </article>
       </section>
       <section>
-        <link to="/" onClick={logOut} className={styles.logout}>
+        <Link to="/" onClick={logOut} className={styles.logout}>
           Cerrar Sesión
-        </link>
+        </Link>
         <article
           className={styles.box}
           style={{ width: "1px" }}
