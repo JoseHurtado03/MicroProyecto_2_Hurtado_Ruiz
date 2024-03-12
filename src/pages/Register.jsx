@@ -19,7 +19,7 @@ export default function Register() {
   const [pref_game, setGame] = useState("");
   const memberships = [];
 
-  async function submitRegisterButton() {
+  async function submitRegisterButton(userUID) {
     if (name !== "" && lastName !== "" && username !== "" && pref_game !== "") {
       await createUser({
         username,
@@ -28,6 +28,7 @@ export default function Register() {
         lastName,
         pref_game,
         memberships,
+        userUID,
       });
       alert("Usuario creado con exito");
     } else {
@@ -48,7 +49,8 @@ export default function Register() {
     if (name !== "" && lastName !== "" && username !== "" && pref_game !== "") {
       const user = await registerWithCredentials(email, password);
       if (user != null) {
-        submitRegisterButton();
+        const userUID = user.uid;
+        submitRegisterButton(userUID);
         navigate("/HomePage");
       } else {
         alert("No se pudo crear la cuenta");

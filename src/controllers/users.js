@@ -1,4 +1,4 @@
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 export async function createUser({
@@ -8,15 +8,15 @@ export async function createUser({
   lastName,
   pref_game,
   memberships,
+  userUID,
 }) {
   const userCollection = collection(db, "users");
-  const data = {
-    username,
+  await setDoc(doc(userCollection, userUID), {
     email,
     name,
     lastName,
+    username,
     pref_game,
     memberships,
-  };
-  await addDoc(userCollection, data);
+  });
 }
