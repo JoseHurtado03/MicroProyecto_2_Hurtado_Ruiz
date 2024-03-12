@@ -47,6 +47,21 @@
   line-height: normal;
 }
 
+@media screen and (max-width: 390px) {
+  .input {
+    width: auto;
+  }
+  .text {
+    width: auto;
+  }
+  .box {
+    width: 380px;
+  }
+  .buttons {
+    width: 160px;
+  }
+}
+
 #button_field {
   gap: 2rem;
 }

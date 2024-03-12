@@ -60,6 +60,8 @@
 
 button {
   flex-shrink: 0;
+  width: 78px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   border-radius: 10px 10px 10px 10px;
