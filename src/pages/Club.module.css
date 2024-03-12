@@ -23,3 +23,31 @@
     font-weight: 700;
     line-height: normal;
 }
+
+.buttonY{
+    width: 274px;
+    height: 84px;
+    border-radius: 40px;
+    background: #5CFF9D;
+    color: #000;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 40px 0 40px 600px
+}
+
+.buttonN{
+    width: 274px;
+    height: 84px;
+    border-radius: 40px;
+    background: #ff7070;
+    color: #000;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 40px 0 40px 600px
+}
