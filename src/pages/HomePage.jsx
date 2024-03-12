@@ -27,6 +27,9 @@ export default function HomePage() {
                 <Link to="/search">
                     <button className={styles.button}>Buscar</button>
                 </Link>
+                <Link to="/profile">
+                    <button>Perfil</button>
+                </Link>
             </section>
             <section>
                 <div style={{ overflow: 'auto', maxWidth: '100%' }}>

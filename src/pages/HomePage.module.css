@@ -1,6 +1,7 @@
 .button{
     width: 57px;
     height: 57px;
+    margin-left: 30px;
 }
 
 .header{
@@ -15,7 +16,7 @@
     background-color: aliceblue;
     margin-bottom: 50px;
 
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    text-align: center;
 }
