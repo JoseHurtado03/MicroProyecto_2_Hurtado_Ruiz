@@ -7,21 +7,28 @@ import styles from "./Login.module.css";
 import { loginWithCredentials } from "../controllers/auth";
 import { useUser } from "../context/user";
 import { useEffect } from "react";
+import { unstable_batchedUpdates } from "react-dom";
 
 export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const user = useUser();
-  // console.log(user);
-  // useEffect(() => {
-  //   if (user) {
-  //     navigate("/HomePage", { replace: true });
-  //   }
-  // }, [user, navigate]);
+  const user = useUser();
+  console.log(user);
+  unstable_batchedUpdates(() => {
+    if (user !== null) {
+      navigate("/HomePage", { replace: true });
+    }
+  });
 
-  const submitLogin = async () => {};
-
+  const submitLogin = async () => {
+    const user = await loginWithCredentials(email, password);
+    if (user != null) {
+      navigate("/HomePage");
+    } else {
+      alert("La contraseña o el correo no coinciden");
+    }
+  };
   const signInGoogle = async () => {
     handleClickGoogle();
   };
